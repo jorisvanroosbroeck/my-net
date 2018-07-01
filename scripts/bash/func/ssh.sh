@@ -25,7 +25,8 @@ function ssh.server.conf {
     FILE='/etc/ssh/sshd_config'
     SEARCHSTR="#Port 22"
     REPLACESTR="Port 65132"
-    changeLine "$FILE" "$SEARCHSTR" "$REPLACESTR"
+    file.line.change "$FILE" "$SEARCHSTR" "$REPLACESTR"
+    file.line.check "$FILE" "$REPLACESTR"
 
     # Restart SSH Daemon
     sudo service ssh restart
