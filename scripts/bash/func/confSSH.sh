@@ -3,9 +3,9 @@ function confSSH {
     SSH_PUBLIC_KEY=$1
 
     # Add SSH public key
-    mkdir .ssh/
-    touch .ssh/authorized_keys
-    echo "$SSH_PUBLIC_KEY" > .ssh/authorized_keys
+    mkdir "$HOME/.ssh/"
+    touch "$HOME.ssh/authorized_keys"
+    echo "$SSH_PUBLIC_KEY" > "$HOME/.ssh/authorized_keys"
 
     # Config SSH Port
 

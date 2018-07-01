@@ -22,9 +22,9 @@ function installBaseTools {
 
 function configSSH {
     # Add SSH public key
-    mkdir .ssh/
-    touch .ssh/authorized_keys
-    echo "$SSH_PUBLIC_KEY" > .ssh/authorized_keys
+    mkdir "$HOME/.ssh/"
+    touch "$HOME.ssh/authorized_keys"
+    echo "$SSH_PUBLIC_KEY" > "$HOME/.ssh/authorized_keys"
 
     # Config SSH Port
 
@@ -38,7 +38,7 @@ function rebootHost {
 
 # PROGRAM
 # =======
-#updateBase
-#installBaseTools
+updateBase
+installBaseTools
 configSSH
 #rebootHost
