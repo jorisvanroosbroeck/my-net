@@ -32,10 +32,6 @@ function configSSH {
     sudo service ssh start
 }
 
-function configNetwork {
-    # Config Static IP
-}
-
 function rebootHost {
     sudo shutdown -r now
 }
