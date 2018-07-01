@@ -15,6 +15,5 @@ function lxc.inst {
 
 case $1 in
     "$1")
-        $1
         ;;
 esac
