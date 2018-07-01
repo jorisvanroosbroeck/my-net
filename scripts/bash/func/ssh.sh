@@ -28,7 +28,7 @@ function ssh.server.conf {
     REPLACESTR="Port $SSH_PORT"
     file.line.change "$FILE" "$SEARCHSTR" "$REPLACESTR"
     file.line.check "$FILE" "$REPLACESTR"
-
+    
     # Restart SSH Daemon
     sudo service ssh restart
 }

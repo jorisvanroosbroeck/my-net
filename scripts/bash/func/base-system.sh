@@ -26,5 +26,6 @@ function base.system.clean {
 
 case $1 in
     "$1")
+        $1
         ;;
 esac

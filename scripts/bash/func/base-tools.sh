@@ -13,5 +13,6 @@ function base.tools.inst {
 
 case $1 in
     "$1")
+        $1
         ;;
 esac
