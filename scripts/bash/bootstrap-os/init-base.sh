@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ==================
+# INFO: init-base.sh
+# ==================
+
+
 # VARIABLEN
 # =========
 MNVAR="$HOME/my-net/env-vars"

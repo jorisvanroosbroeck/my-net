@@ -1,3 +1,11 @@
+# ============
+# INFO: SSH.sh
+# ============
+# $SSH_PUBLIC_KEY = Mandatory in calling script!
+
+# ================
+# FUNCTION: SSH.sh
+# ================
 function confSSH {
     # Add SSH public key
     mkdir "$HOME/.ssh/"
@@ -6,6 +14,6 @@ function confSSH {
 
     # Config SSH Port
 
-    # Start SSH Daemon
-    sudo service ssh start
+    # Restart SSH Daemon
+    sudo service ssh restart
 }
