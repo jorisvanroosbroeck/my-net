@@ -7,13 +7,13 @@
 # =========
 function updateBase {
     # Update & Upgrade System
-    sudo apt-get Update -y
-    sudo apt-get upgrade -y
-    sudo apt-get dist-upgrade
+    sudo apt-get Update -Y
+    sudo apt-get upgrade -Y
+    sudo apt-get dist-upgrade -Y
 }
 
 function installBaseTools {
-    sudo apt-get install htop iftop ncdu
+    sudo apt-get install htop iftop ncdu -Y
 }
 
 function configSSH {
