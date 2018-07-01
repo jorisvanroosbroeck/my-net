@@ -1,7 +1,7 @@
 function confSSH {
     # Add SSH public key
     mkdir "$HOME/.ssh/"
-    touch "$HOME.ssh/authorized_keys"
+    touch "$HOME/.ssh/authorized_keys"
     echo "$SSH_PUBLIC_KEY" > "$HOME/.ssh/authorized_keys"
 
     # Config SSH Port
