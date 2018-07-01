@@ -6,9 +6,6 @@
 # FUNCTIONS
 # =========
 function updateBase {
-    # Do Release Update
-    sudo do-release-upgrade
-
     # Update & Upgrade System
     sudo apt-get update -y
     sudo apt-get upgrade -y
