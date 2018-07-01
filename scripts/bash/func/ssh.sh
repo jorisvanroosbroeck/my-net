@@ -17,7 +17,9 @@ function ssh.client.conf {
         touch "$HOME/.ssh/authorized_keys"
     fi
     echo "$SSH_PUBLIC_KEY" > "$HOME/.ssh/authorized_keys"
+}
 
+function ssh.server.conf {
     # Config SSH Port
 
     # Restart SSH Daemon
