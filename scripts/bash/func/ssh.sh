@@ -36,7 +36,7 @@ function ssh.server.conf {
 case $1 in
     "$1")
         source "$HOME/my-net/env-vars/mn-vars.sh"
-        source "$HOME/my-net/scripts/func/file.sh"
+        source "$HOME/my-net/scripts/bash/func/file.sh"
 
         $1
         ;;
