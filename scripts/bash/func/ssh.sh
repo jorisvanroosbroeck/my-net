@@ -6,7 +6,7 @@
 # ================
 # FUNCTION: SSH.sh
 # ================
-function confSSH {
+function ssh.client.conf {
     # Add SSH public key
     if [ ! -d "$HOME/.ssh/" ]
     then

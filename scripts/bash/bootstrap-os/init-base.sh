@@ -22,6 +22,6 @@ source "$MNFUNC/ssh.sh"
 # =======
 confUpdateSystem
 instBaseTools
-confSSH
+ssh.client.conf
 
 #shutdown -r now
