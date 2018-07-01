@@ -23,3 +23,10 @@ function base.system.clean {
     sudo apt-get autoremove
     sudo apt-get autoclean
 }
+
+STATE=$1
+
+if [ ${#STATE} -gt 0 ]
+then
+    echo $STATE
+fi
