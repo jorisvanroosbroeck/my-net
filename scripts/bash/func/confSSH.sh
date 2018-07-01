@@ -1,7 +1,4 @@
 function confSSH {
-    # Variablen
-    SSH_PUBLIC_KEY=$1
-
     # Add SSH public key
     mkdir "$HOME/.ssh/"
     touch "$HOME.ssh/authorized_keys"
