@@ -6,7 +6,7 @@
 # =======================
 # FUNCTION: base-tools.sh
 # =======================
-function instBaseTools {
+function base.tools.inst {
     # Install Ubuntu Base Tools
     sudo apt-get install htop iftop ncdu
 }

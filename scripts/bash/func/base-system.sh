@@ -5,7 +5,7 @@
 # ========================
 # FUNCTION: base-system.sh
 # ========================
-function confUpdateSystem {
+function base.system.full-upgrade {
     # Update Package Repository
     sudo apt-get update -y
     # Update Packages System

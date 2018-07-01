@@ -20,8 +20,8 @@ source "$MNFUNC/ssh.sh"
 
 # PROGRAM
 # =======
-confUpdateSystem
-instBaseTools
+base.system.full-upgrade
+base.tools.inst
 ssh.client.conf
 
 #shutdown -r now
