@@ -13,3 +13,8 @@ function base.system.upgrade-full {
     # Upgrade Packages System
     sudo apt-get dist-upgrade -y
 }
+
+function base.system.clean {
+    sudo apt-get autoremove
+    sudo apt-get autoclean
+}

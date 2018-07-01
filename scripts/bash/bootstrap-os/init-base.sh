@@ -24,5 +24,6 @@ base.system.upgrade-full
 base.tools.inst
 ssh.client.conf
 ssh.server.conf
+base.system.clean
 
 #shutdown -r now
