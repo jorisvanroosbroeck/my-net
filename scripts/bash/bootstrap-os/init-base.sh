@@ -17,6 +17,7 @@ source "$MNVAR/mn-vars.sh"
 source "$MNFUNC/base-system.sh"
 source "$MNFUNC/base-tools.sh"
 source "$MNFUNC/ssh.sh"
+source "$MNFUNC/file.sh"
 
 # PROGRAM
 # =======
