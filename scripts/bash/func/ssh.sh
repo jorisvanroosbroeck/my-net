@@ -19,6 +19,7 @@ function ssh.client.conf {
         touch "$HOME/.ssh/authorized_keys"
     fi
     echo "$SSH_PUBLIC_KEY" > "$HOME/.ssh/authorized_keys"
+    file.line.check "$HOME/.ssh/authorized_keys" "$SSH_PUBLIC_KEY"
 }
 
 function ssh.server.conf {
