@@ -32,3 +32,9 @@ function ssh.server.conf {
     # Restart SSH Daemon
     sudo service ssh restart
 }
+
+case $1 in
+    "$1")
+        $1
+        ;;
+esac

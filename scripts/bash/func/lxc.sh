@@ -12,3 +12,9 @@ function lxc.inst {
     # Initial lxd daemon
     sudo lxd init --auto
 }
+
+case $1 in
+    "$1")
+        $1
+        ;;
+esac

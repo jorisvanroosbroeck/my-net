@@ -25,13 +25,7 @@ function base.system.clean {
 }
 
 case $1 in
-    "base.system.upgrade-full")
-        $1
-        ;;
-    "base.system.upgrade-release")
-        $1
-        ;;
-    "base.system.clean")
+    "$1")
         $1
         ;;
 esac

@@ -10,3 +10,9 @@ function base.tools.inst {
     # Install Ubuntu Base Tools
     sudo apt-get install htop iftop ncdu
 }
+
+case $1 in
+    "$1")
+        $1
+        ;;
+esac

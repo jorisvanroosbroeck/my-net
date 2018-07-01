@@ -70,3 +70,9 @@ function ansible.hostfile {
     sed -i "$ a\node02" $FILE
     sed -i "$ a\node03" $FILE
 }
+
+case $1 in
+    "$1")
+        $1
+        ;;
+esac
