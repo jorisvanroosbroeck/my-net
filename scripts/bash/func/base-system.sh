@@ -16,7 +16,7 @@ function base.system.upgrade-full {
 
 function base.system.upgrade-release {
     # Upgrade to new LTS version of Ubuntu Server
-    sudo do-release-upgrade
+    sudo do-release-upgrade -y
 }
 
 function base.system.clean {
