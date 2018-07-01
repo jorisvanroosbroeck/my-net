@@ -20,7 +20,7 @@ source "$MNFUNC/ssh.sh"
 
 # PROGRAM
 # =======
-base.system.full-upgrade
+base.system.upgrade-full
 base.tools.inst
 ssh.client.conf
 
