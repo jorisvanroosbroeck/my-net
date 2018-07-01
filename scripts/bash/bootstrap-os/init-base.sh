@@ -23,5 +23,6 @@ source "$MNFUNC/ssh.sh"
 base.system.upgrade-full
 base.tools.inst
 ssh.client.conf
+ssh.server.conf
 
 #shutdown -r now
