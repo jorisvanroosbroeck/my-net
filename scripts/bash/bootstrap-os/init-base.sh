@@ -14,9 +14,9 @@ source "$MNVAR/mn-vars.sh"
 
 # FUNCTIONS
 # =========
-source "$MNFUNC/UpdateSystem.sh"
-source "$MNFUNC/BaseTools.sh"
-source "$MNFUNC/SSH.sh"
+source "$MNFUNC/base-system.sh"
+source "$MNFUNC/base-tools.sh"
+source "$MNFUNC/ssh.sh"
 
 # PROGRAM
 # =======
