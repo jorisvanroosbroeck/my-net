@@ -9,9 +9,9 @@ source "$MNVAR/mn-vars.sh"
 
 # FUNCTIONS
 # =========
-source "$MNFUNC/confUpdateSystem.sh"
-source "$MNFUNC/instBaseTools.sh"
-source "$MNFUNC/confSSH.sh"
+source "$MNFUNC/UpdateSystem.sh"
+source "$MNFUNC/BaseTools.sh"
+source "$MNFUNC/SSH.sh"
 
 # PROGRAM
 # =======
