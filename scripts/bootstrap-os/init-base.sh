@@ -1,4 +1,4 @@
-# @ECHO off
+#!/bin/bash
 
 # VARIABLEN
 # =========
