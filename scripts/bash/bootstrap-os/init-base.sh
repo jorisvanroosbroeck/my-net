@@ -2,21 +2,20 @@
 
 # VARIABLEN
 # =========
-source "$HOME/my-net/env-vars/mn-vars.sh"
+MNVAR="$HOME/my-net/env-vars"
+MNFUNC="$HOME/my-net/scripts/bash/func"
+source "$MNVAR/mn-vars.sh"
 
 # FUNCTIONS
 # =========
-source "$HOME/my-net/scripts/bash/func/confUpdateSystem.sh"
-source "$HOME/my-net/scripts/bash/func/instBaseTools.sh"
-source "$HOME/my-net/scripts/bash/func/confSSH.sh"
-
-function rebootHost {
-    sudo shutdown -r now
-}
+source "$MNFUNC/confUpdateSystem.sh"
+source "$MNFUNC/instBaseTools.sh"
+source "$MNFUNC/confSSH.sh"
 
 # PROGRAM
 # =======
 confUpdateSystem
 instBaseTools
 confSSH
-#rebootHost
+
+#shutdown -r now
