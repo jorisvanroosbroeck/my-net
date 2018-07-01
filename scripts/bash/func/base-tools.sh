@@ -13,6 +13,7 @@ function base.tools.inst {
 
 case $1 in
     "$1")
+        source "$HOME/my-net/env-vars/mn-vars.sh"
         $1
         ;;
 esac
