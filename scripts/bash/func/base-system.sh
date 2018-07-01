@@ -14,6 +14,11 @@ function base.system.upgrade-full {
     sudo apt-get dist-upgrade -y
 }
 
+function base.system.upgrade-release {
+    # Upgrade to new LTS version of Ubuntu Server
+    sudo do-release-upgrade
+}
+
 function base.system.clean {
     sudo apt-get autoremove
     sudo apt-get autoclean

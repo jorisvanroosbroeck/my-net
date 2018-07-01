@@ -9,7 +9,7 @@
 # FUNCTION: SSH.sh
 # ================
 function ssh.client.conf {
-    # Add SSH public key
+    # Add SSH public key $SSH_PUBLIC_KEY
     if [ ! -d "$HOME/.ssh/" ]
     then
         mkdir "$HOME/.ssh/"
