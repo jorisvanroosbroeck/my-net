@@ -2,7 +2,7 @@
 
 # VARIABLEN
 # =========
-"$HOME/my-net/env-vars/mn-vars"
+"$HOME/my-net/env-vars/mn-vars.sh"
 
 # FUNCTIONS
 # =========
