@@ -11,7 +11,7 @@ function file.line.change {
     SEARCHSTR=$2
     REPLACESTR=$3
 
-    sed -i "s/$SEARCHSTR/$REPLACESTR/g" $FILE
+    sudo sed -i "s/$SEARCHSTR/$REPLACESTR/g" $FILE
 }
 
 function file.line.check {
