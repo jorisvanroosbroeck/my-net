@@ -8,8 +8,14 @@
 # ================
 function confSSH {
     # Add SSH public key
-    mkdir "$HOME/.ssh/"
-    touch "$HOME/.ssh/authorized_keys"
+    if [ ! -d "$HOME/.ssh/" ]
+    then
+        mkdir "$HOME/.ssh/"
+    fi
+    if [ ! -f "$HOME/.ssh/authorized_keys" ]
+    then
+        touch "$HOME/.ssh/authorized_keys"
+    fi
     echo "$SSH_PUBLIC_KEY" > "$HOME/.ssh/authorized_keys"
 
     # Config SSH Port

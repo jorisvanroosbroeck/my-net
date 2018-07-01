@@ -1,3 +1,10 @@
+# ====================
+# INFO: base-system.sh
+# ====================
+
+# ========================
+# FUNCTION: base-system.sh
+# ========================
 function confUpdateSystem {
     # Update Package Repository
     sudo apt-get update -y
