@@ -24,9 +24,14 @@ function base.system.clean {
     sudo apt-get autoclean
 }
 
-STATE=$1
-
-if [ ${#STATE} -gt 0 ]
-then
-    echo $STATE
-fi
+case $1 in
+    "base.system.upgrade-full")
+        $1
+        ;;
+    "base.system.upgrade-release")
+        $1
+        ;;
+    "base.system.clean")
+        $1
+        ;;
+esac
