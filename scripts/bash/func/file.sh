@@ -30,3 +30,10 @@ function file.line.check {
         echo "---------- $CHECKSTRING --------- Not OK"
     fi
 }
+
+# =================
+case $1 in
+    "$1")
+        $1
+        ;;
+esac

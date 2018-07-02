@@ -13,6 +13,7 @@ function lxc.inst {
     sudo lxd init --auto
 }
 
+# ================
 case $1 in
     "$1")
         $1

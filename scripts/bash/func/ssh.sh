@@ -1,9 +1,16 @@
 # ============
 # INFO: SSH.sh
 # ============
-# $SSH_PUBLIC_KEY = Mandatory in calling script!
-# $SSH_PORT = Mandatory in calling script!
-# my-net/scripts/func/file.sh = Mandatory in calling script!
+
+
+# =================
+# VARIABLEN: ssh.sh
+# =================
+MNVAR="$HOME/my-net/env-vars"
+MNFUNC="$HOME/my-net/scripts/bash/func"
+
+source "$MNVAR/mn-vars.sh"
+
 
 # ================
 # FUNCTION: SSH.sh
@@ -19,7 +26,7 @@ function ssh.client.conf {
         touch "$HOME/.ssh/authorized_keys"
     fi
     echo "$SSH_PUBLIC_KEY" > "$HOME/.ssh/authorized_keys"
-    "$HOME/my-net/scripts/bash/handlers/file.sh" 'file.line.check' "$HOME/.ssh/authorized_keys" "$SSH_PUBLIC_KEY"
+    "$MNFUNC/file.sh" 'file.line.check' "$HOME/.ssh/authorized_keys" "$SSH_PUBLIC_KEY"
 }
 
 function ssh.server.conf {
@@ -34,10 +41,9 @@ function ssh.server.conf {
     sudo service ssh restart
 }
 
+# ================
 case $1 in
     "$1")
-        source "$HOME/my-net/env-vars/mn-vars.sh"
-        #source "$HOME/my-net/scripts/bash/func/file.sh"
         $1
         ;;
 esac
