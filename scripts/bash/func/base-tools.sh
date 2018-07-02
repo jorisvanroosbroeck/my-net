@@ -1,7 +1,6 @@
 # ===================
 # INFO: base-tools.sh
 # ===================
-# $SSH_PUBLIC_KEY = Mandatory in calling script!
 
 
 # =================
@@ -24,7 +23,6 @@ function base.tools.inst {
 # ===================
 case $1 in
     "$1")
-        source "$HOME/my-net/env-vars/mn-vars.sh"
         $1
         ;;
 esac

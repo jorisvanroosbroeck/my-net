@@ -32,6 +32,8 @@ base.system.clean
 # =================
 case $1 in
     "reboot")
+        # Seems not to work yet...
+        # Priviles
         sudo shutdown -r now
         ;;
 esac

@@ -2,13 +2,18 @@
 # INFO: template-bash-functions.sh
 # ================================
 
+
 # =====================================
 # VARIABLEN: template-bash-functions.sh
 # =====================================
+MNVAR="$HOME/my-net/env-vars"
+MNFUNC="$HOME/my-net/scripts/bash/func"
+
 
 # ====================================
 # FUNCTION: template-bash-functions.sh
 # ====================================
+
 
 # ====================================
 case $1 in
