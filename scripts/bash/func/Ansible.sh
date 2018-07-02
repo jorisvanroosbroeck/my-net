@@ -1,6 +1,14 @@
 # ================
 # INFO: ansible.sh
 # ================
+# Needed:   my-net/scripts/bash/file.sh
+
+# =====================
+# VARIABLEN: ansible.sh
+# =====================
+MNVAR="$HOME/my-net/env-vars"
+MNFUNC="$HOME/my-net/scripts/bash/func"
+MNHAND="$HOME/my-net/scripts/bash/handlers"
 
 
 # ====================
@@ -23,18 +31,18 @@ function ansible.conf {
     FILE='/etc/ansible/ansible.cfg'
     SEARCHSTR="#log_path = \/var\/log\/ansible.log"
     REPLACESTR="log_path = \/var\/log\/ansible.log"
-    changeLine "$FILE" "$SEARCHSTR" "$REPLACESTR"
+    $MNFUNC/file.sh 'file.line.change' "$FILE" "$SEARCHSTR" "$REPLACESTR"
 
     # Ansible-Playbook fail, put file in Retry Folder
     FILE='/etc/ansible/ansible.cfg'
     SEARCHSTR="#retry_files_enabled = False"
     REPLACESTR="retry_files_enabled = True"
-    changeLine "$FILE" "$SEARCHSTR" "$REPLACESTR"
+    $MNFUNC/file.sh 'file.line.change'angeLine "$FILE" "$SEARCHSTR" "$REPLACESTR"
 
     RETRYDIR="RETRY"
     SEARCHSTR="#retry_files_save_path = ~\/.ansible-retry"
     REPLACESTR="retry_files_save_path = $SCRIPTDIR\/$RETRYDIR"
-    changeLine "$FILE" "$SEARCHSTR" "$REPLACESTR"
+    $MNFUNC/file.sh 'file.line.change'  "$FILE" "$SEARCHSTR" "$REPLACESTR"
     if [ ! -d "$RETRYDIR" ]
     then
         mkdir "$RETRYDIR"
@@ -43,10 +51,10 @@ function ansible.conf {
     # Check Configured Options Ansible
     FILE="/etc/ansible/ansible.cfg"
     CHECKSTRING='log_path = /var/log/ansible.log'
-    checkConfig $FILE $CHECKSTRING
+    $MNFUNC/file.sh 'file.line.check'  $FILE $CHECKSTRING
 
     CHECKSTRING='retry_files_enabled = True'
-    checkConfig $FILE $CHECKSTRING
+    $MNFUNC/file.sh 'file.line.check'  $FILE $CHECKSTRING
 }
 
 function ansible.hostfile.template {
