@@ -1,0 +1,16 @@
+vhost01 ansible_host=10.254.254.252     ansible_user=mnadmin
+vgrd01  ansible_host=10.254.254.251     ansible_user=mnadmin
+grd01   ansible_host=10.254.254.254     ansible_user=mnadmin
+grd02   ansible_host=192.168.254.254    ansible_user=mnadmin
+
+[bare-metal]
+vhost01
+vgrd01
+
+[firewall]
+grd01
+grd02
+
+[mynet:children]
+bare-metal
+firewall

@@ -1,0 +1,14 @@
+hostname01  ansible_host=<IP>   ansible_user=<USR>
+hostname02  ansible_host=<IP>   ansible_user=<USR>
+hostname03  ansible_host=<IP>   ansible_user=<USR>
+
+[group01]
+hostname01
+hostname02
+
+[group02]
+hostname03
+
+[group-items:children]
+group01
+group02

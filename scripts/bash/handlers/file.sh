@@ -32,8 +32,3 @@ function file.line.check {
 }
 
 # =================
-case $1 in
-    "$1")
-        $1
-        ;;
-esac

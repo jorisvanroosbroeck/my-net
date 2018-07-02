@@ -49,9 +49,15 @@ function ansible.conf {
     checkConfig $FILE $CHECKSTRING
 }
 
-function ansible.hostfile {
+function ansible.hostfile.template {
+    # Copy template
+    sudo cp -fv "$HOME/my-net/files/ansible/hosts" "/etc/ansible/hosts"
+}
+
+function ansible.hostfile.dynamic {
     FILE="/etc/ansible/hosts"
 
+    # Needs to be changed
     sed -i "$ a\ " $FILE
     sed -i "$ a\[jumpers]" $FILE
     sed -i "$ a\bastion" $FILE
