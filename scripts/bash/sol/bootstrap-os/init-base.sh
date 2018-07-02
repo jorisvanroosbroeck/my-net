@@ -27,4 +27,13 @@ ssh.client.conf
 ssh.server.conf
 base.system.clean
 
-#shutdown -r now
+
+# =================
+case $1 in
+    "--reboot")
+        shutdown -r now
+        ;;
+    "-r")
+        shutdown -r now
+        ;;
+esac
