@@ -15,7 +15,7 @@ MNVAR="$HOME/my-net/env-vars"
 MNFUNC="$HOME/my-net/scripts/bash/func"
 MNHAND="$HOME/my-net/scripts/bash/handlers"
 
-source "$MNVAR/mn-vars.sh"
+source "$MNVAR/mn-vars"
 
 
 # FUNCTIONS
