@@ -19,7 +19,7 @@ function ssh.client.conf {
         touch "$HOME/.ssh/authorized_keys"
     fi
     echo "$SSH_PUBLIC_KEY" > "$HOME/.ssh/authorized_keys"
-    file.line.check "$HOME/.ssh/authorized_keys" "$SSH_PUBLIC_KEY"
+    "$HOME/my-net/scripts/bash/func/file.sh" 'file.line.check' "$HOME/.ssh/authorized_keys" "$SSH_PUBLIC_KEY"
 }
 
 function ssh.server.conf {
@@ -37,7 +37,7 @@ function ssh.server.conf {
 case $1 in
     "$1")
         source "$HOME/my-net/env-vars/mn-vars.sh"
-        source "$HOME/my-net/scripts/bash/func/file.sh"
+        #source "$HOME/my-net/scripts/bash/func/file.sh"
         $1
         ;;
 esac
