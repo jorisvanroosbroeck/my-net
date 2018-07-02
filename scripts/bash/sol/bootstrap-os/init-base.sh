@@ -31,10 +31,7 @@ base.system.clean
 
 # =================
 case $1 in
-    "--reboot")
-        shutdown -r now
-        ;;
-    "-r")
+    "reboot")
         shutdown -r now
         ;;
 esac
