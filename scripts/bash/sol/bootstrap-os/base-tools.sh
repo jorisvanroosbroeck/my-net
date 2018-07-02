@@ -18,7 +18,15 @@ source "$MNVAR/mn-vars.sh"
 # =======================
 function base.tools.inst {
     # Install Ubuntu Base Tools
-    sudo apt-get install htop iftop ncdu
+    sudo apt-get -y install htop
+    sudo apt-get -y install iftop
+    sudo apt-get -y ncdu
+}
+
+function base.security.inst {
+    # Install Security Tools
+    sudo apt-get -y install rkhunter
+    sudo apt-get -y install chkrootkit
 }
 
 # ===================

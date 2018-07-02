@@ -27,7 +27,7 @@ function ssh.client.conf {
         touch "$HOME/.ssh/authorized_keys"
     fi
     echo "$SSH_PUBLIC_KEY" > "$HOME/.ssh/authorized_keys"
-    "$MNFUNC/file.sh" 'file.line.check' "$HOME/.ssh/authorized_keys" "$SSH_PUBLIC_KEY"
+    $MNFUNC/file.sh 'file.line.check' "$HOME/.ssh/authorized_keys" "$SSH_PUBLIC_KEY"
 }
 
 function ssh.server.conf {
@@ -35,8 +35,8 @@ function ssh.server.conf {
     FILE='/etc/ssh/sshd_config'
     SEARCHSTR="#Port 22"
     REPLACESTR="Port $SSH_PORT"
-    file.line.change "$FILE" "$SEARCHSTR" "$REPLACESTR"
-    file.line.check "$FILE" "$REPLACESTR"
+    $MNFUNC/file.sh 'file.line.change' "$FILE" "$SEARCHSTR" "$REPLACESTR"
+    $MNFUNC/file.sh 'file.line.check' "$FILE" "$REPLACESTR"
     
     # Restart SSH Daemon
     sudo service ssh restart

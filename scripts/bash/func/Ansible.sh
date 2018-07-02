@@ -28,7 +28,7 @@ function ansible.conf {
     # Ansible-Playbook fail, put file in Retry Folder
     FILE='/etc/ansible/ansible.cfg'
     SEARCHSTR="#retry_files_enabled = False"
-    REPLACESTR="retry_files_enabled = False"
+    REPLACESTR="retry_files_enabled = True"
     changeLine "$FILE" "$SEARCHSTR" "$REPLACESTR"
 
     RETRYDIR="RETRY"
@@ -45,7 +45,7 @@ function ansible.conf {
     CHECKSTRING='log_path = /var/log/ansible.log'
     checkConfig $FILE $CHECKSTRING
 
-    CHECKSTRING='retry_files_enabled = False'
+    CHECKSTRING='retry_files_enabled = True'
     checkConfig $FILE $CHECKSTRING
 }
 
