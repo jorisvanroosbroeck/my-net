@@ -1,6 +1,8 @@
 # ============
 # INFO: SSH.sh
 # ============
+# Needed:   my-net/scripts/bash/func/
+#               file.sh
 
 
 # =================

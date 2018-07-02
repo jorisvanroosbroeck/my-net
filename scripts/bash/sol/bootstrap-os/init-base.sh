@@ -3,7 +3,11 @@
 # ==================
 # INFO: init-base.sh
 # ==================
-
+# Needed:   my-net/scripts/bash/func/
+#               base-system.sh
+#               base-tools.sh
+#               ssh.sh
+#               file.sh
 
 # VARIABLEN
 # =========

@@ -1,7 +1,9 @@
 # ================
 # INFO: ansible.sh
 # ================
-# Needed:   my-net/scripts/bash/file.sh
+# Needed:   my-net/scripts/bash/
+#               file.sh
+
 
 # =====================
 # VARIABLEN: ansible.sh

@@ -1,6 +1,8 @@
 # ============
 # INFO: kvm.sh
 # ============
+# Needed:   my-net/scripts/bash/func/
+#               base-system.sh
 
 
 # =================
