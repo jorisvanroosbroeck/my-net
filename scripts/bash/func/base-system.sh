@@ -24,6 +24,27 @@ function base.system.clean {
     sudo apt-get autoclean
 }
 
+function base.system.net.ip.dhcp {
+    #
+}
+
+function base.system.net.ip.static {
+    #
+}
+
+function base.system.net.bridge.inst {
+    # Install needed tools
+    sudo apt-get -y install bridge-utils
+}
+
+function base.system.net.bridge.ip.dhcp {
+    #
+}
+
+function base.system.net.bridge.ip.static {
+    #
+}
+
 # ========================
 case $1 in
     "$1")

@@ -14,9 +14,10 @@ MNHAND="$HOME/my-net/scripts/bash/handlers"
 # ================
 # FUNCTION: kvm.sh
 # ================
-function kvm.system.conf {
+function kvm.system.inst {
     # Install needed tools
-    sudo apt-get -y ubuntu-vm-builder bridge-utils
+    sudo apt-get -y ubuntu-vm-builder
+    $MNFUNC/base-system.sh "base.system.net.bridge.inst"
 
     # Install kvm / qemu
     sudo apt-get -y install qemu-kvm libvirt-bin

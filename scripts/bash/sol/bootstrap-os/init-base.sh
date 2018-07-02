@@ -16,19 +16,15 @@ source "$MNVAR/mn-vars.sh"
 
 # FUNCTIONS
 # =========
-source "$MNFUNC/base-system.sh"
-source "$MNFUNC/base-tools.sh"
-source "$MNFUNC/ssh.sh"
-source "$MNHAND/file.sh"
 
 
 # PROGRAM
 # =======
-base.system.upgrade-full
-base.tools.inst
-ssh.client.conf
-ssh.server.conf
-base.system.clean
+$MNFUNC/base-system.sh "base.system.upgrade-full"
+$MNFUNC/base-tools.sh "base.tools.inst"
+$MNFUNC/ssh.sh "ssh.client.conf"
+$MNHAND/file.sh "ssh.server.conf"
+$MNFUNC/base-system.sh "base.system.clean"
 
 
 # =================
