@@ -9,6 +9,7 @@
 # =========
 MNVAR="$HOME/my-net/env-vars"
 MNFUNC="$HOME/my-net/scripts/bash/func"
+MNHAND="$HOME/my-net/scripts/bash/handlers"
 
 source "$MNVAR/mn-vars.sh"
 
@@ -17,7 +18,7 @@ source "$MNVAR/mn-vars.sh"
 source "$MNFUNC/base-system.sh"
 source "$MNFUNC/base-tools.sh"
 source "$MNFUNC/ssh.sh"
-source "$MNFUNC/file.sh"
+source "$MNHAND/file.sh"
 
 # PROGRAM
 # =======
