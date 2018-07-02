@@ -32,6 +32,6 @@ base.system.clean
 # =================
 case $1 in
     "reboot")
-        shutdown -r now
+        sudo shutdown -r now
         ;;
 esac
