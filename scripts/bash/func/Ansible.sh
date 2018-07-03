@@ -39,7 +39,7 @@ function ansible.conf {
     FILE='/etc/ansible/ansible.cfg'
     SEARCHSTR="#retry_files_enabled = False"
     REPLACESTR="retry_files_enabled = True"
-    $MNFUNC/file.sh 'file.line.change'angeLine "$FILE" "$SEARCHSTR" "$REPLACESTR"
+    $MNFUNC/file.sh 'file.line.change' "$FILE" "$SEARCHSTR" "$REPLACESTR"
 
     RETRYDIR="RETRY"
     SEARCHSTR="#retry_files_save_path = ~\/.ansible-retry"
