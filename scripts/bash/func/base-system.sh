@@ -1,6 +1,17 @@
 # ====================
 # INFO: base-system.sh
 # ====================
+# Needed:   my-net/scripts/bash/func/
+#               file.sh
+
+
+# =================
+# VARIABLEN: ssh.sh
+# =================
+MNVAR="$HOME/my-net/env-vars"
+MNFUNC="$HOME/my-net/scripts/bash/func"
+MNHAND="$HOME/my-net/scripts/bash/handlers"
+source "$MNVAR/mn-vars"
 
 
 # ========================
@@ -25,7 +36,13 @@ function base.system.clean {
     sudo apt-get autoclean
 }
 
-function base.system.net.ip.dhcp {
+function base.net.clean {
+    PATH=$1
+
+    $MNFUNC/files.sh "$PATH"
+}
+
+function base.net.ip.dhcp {
     FILE=$1
     MSG=$2
     IFACE=$3
@@ -35,7 +52,7 @@ function base.system.net.ip.dhcp {
     sed -i "$ a\iface $IFACE inet dhcp"
 }
 
-function base.system.net.ip.static {
+function base.net.ip.static {
     FILE=$1
     MSG=$2
     IFACE=$3
@@ -53,16 +70,29 @@ function base.system.net.ip.static {
     sed -i "$ a\t\searcht\ $SRCH" $FILE
 }
 
-function base.system.net.bridge.inst {
+function base.net.ip.other.static {
+    FILE=$1
+    MSG=$2
+    IFACE=$3
+    IP=$4
+
+    sed -i "$ a\# My-Net: $IFACE - $MSG" $FILE
+    sed -i "$ a\auto $IFACE" $FILE
+    sed -i "$ a\iface $IFACE inet static" $FILE
+    sed -i "$ a\t\addresst\ $IP" $FILE
+}
+
+function base.net.bridge.inst {
     # Install needed tools
     sudo apt-get -y install bridge-utils
 }
 
-function base.system.net.bridge.ip.dhcp {
+function base.net.bridge.ip.dhcp {
     base.system.net.ip.dhcp "$1" "$2" "$3"
+    # Hier moet nog extra code komen voor connectie naar netwerkcard
 }
 
-function base.system.net.bridge.ip.static {
+function base.net.bridge.ip.static {
     base.system.net.ip.static "$1" "$2" "$3" "$4" "$5" "$6" "$7"
     sed -i "$ a\t\t\blablabla" $1
     sed -i "$ a\t\t\blablabla" $1

@@ -1,24 +1,24 @@
 #!/bin/bash
 
-# ================================
-# INFO: template-bash-functions.sh
-# ================================
+# ==============================
+# INFO: template-bash-scripts.sh
+# ==============================
 
 
-# =====================================
-# VARIABLEN: template-bash-functions.sh
-# =====================================
+# ===================================
+# VARIABLEN: template-bash-scripts.sh
+# ===================================
 MNVAR="$HOME/my-net/env-vars"
 MNFUNC="$HOME/my-net/scripts/bash/func"
 MNHAND="$HOME/my-net/scripts/bash/handlers"
 
 
-# ====================================
-# FUNCTION: template-bash-functions.sh
-# ====================================
+# ==================================
+# FUNCTION: template-bash-scripts.sh
+# ==================================
 
 
-# ====================================
+# ==================================
 case $1 in
     "$1")
         $1

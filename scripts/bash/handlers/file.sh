@@ -6,6 +6,13 @@
 # =================
 # FUNCTION: file.sh
 # =================
+function file.empty {
+    PATH=$1
+
+    sudo rm -fv $PATH
+    sudo touch $PATH
+}
+
 function file.line.change {
     FILE=$1
     SEARCHSTR=$2
