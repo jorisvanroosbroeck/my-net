@@ -1,5 +1,8 @@
 ---
-- import_tasks: install-packages.yml
-- import_tasks: config-swap-disable.yml
-- import_tasks: config-ip-forward.yml
-- import_tasks: config-user.yml
+- name: Installing Needed Software
+  import_tasks: install-packages.yml
+
+- name: Configure k8s-cluster
+  import_tasks: config-swap-disable.yml
+  import_tasks: config-ip-forward.yml
+  import_tasks: config-user.yml
