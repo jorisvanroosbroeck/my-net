@@ -1,0 +1,4 @@
+---
+- hosts: k8s-cluster
+  roles:
+  - { role: bootstrap-k8s-cluster }
