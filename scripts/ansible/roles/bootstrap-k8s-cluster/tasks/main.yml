@@ -1,0 +1,5 @@
+---
+ - import_tasks: install-packages.yml
+ - import_tasks: config-swap-disable.yml
+ - import_tasks: config-ip-forward.yml
+ - import_tasks: config-user.yml
