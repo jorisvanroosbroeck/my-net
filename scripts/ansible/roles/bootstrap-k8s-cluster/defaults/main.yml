@@ -1,0 +1,7 @@
+---
+network_mdns_zones:
+  - home
+  - internal
+  - public
+  - work
+  - external

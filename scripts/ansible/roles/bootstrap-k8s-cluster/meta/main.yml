@@ -1,0 +1,9 @@
+---
+galaxy_info:
+  description: Enable mdns (zeroconf, bonjour, avahi) link-local hostname look-up and service discovery
+  min_ansible_version: 1.4
+  categories:
+    - system
+    - networking
+
+dependencies: []
