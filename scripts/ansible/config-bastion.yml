@@ -1,4 +1,4 @@
 ---
-- hosts: bastion:localhost
+- hosts: localhost
   roles:
   - { role: bootstrap-bastion }
