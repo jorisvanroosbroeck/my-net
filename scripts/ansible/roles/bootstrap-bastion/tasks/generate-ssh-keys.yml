@@ -1,0 +1,4 @@
+---
+- name: Generate /etc/ssh/ RSA host key
+    command : ssh-keygen -q -t rsa -f ./ssh/id_rsa -C "" -N ""
+    creates: .ssh/id_rsa
