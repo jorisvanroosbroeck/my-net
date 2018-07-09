@@ -1,0 +1,1 @@
+bastion ansible_host=<External IP>     ansible_user=sysadmin

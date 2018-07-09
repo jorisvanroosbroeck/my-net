@@ -10,12 +10,13 @@
 # ===============================
 # VARIABLEN: install-kubespray.sh
 # ===============================
-MNVAR="$HOME/my-net/env-vars"
-MNFUNC="$HOME/my-net/scripts/bash/func"
-MNHAND="$HOME/my-net/scripts/bash/handlers"
-MNFILE="$HOME/my-net/files"
-ANSIBLEHOSTFILE="$HOME/kubespray/inventory/k8sswiss/hosts.ini"
-ANSIBLEROLEPATH="$HOME/my-net/scripts/ansible"
+DIR="/mnt/c/Users/JorisVanRoosbroeck/Documents/Visual Studio Code/github.com"
+MNVAR="$DIR/my-net/env-vars"
+MNFUNC="$DIR/my-net/scripts/bash/func"
+MNHAND="$DIR/my-net/scripts/bash/handlers"
+MNFILE="$DIR/my-net/files"
+ANSIBLEHOSTFILE="$DIR/kubespray/inventory/k8sswiss/hosts.ini"
+ANSIBLEROLEPATH="$DIR/my-net/scripts/ansible"
 
 SCRIPTNAME=${0##*/}
 SCRIPTDIR=${0%/*}
@@ -29,7 +30,7 @@ LOGFILE=" "
 # FUNCTIONS: install-kubespray.sh
 # ===============================
 function createLogFile {
-    LOGDIR="$HOME/LOG/" 
+    LOGDIR="$DIR/LOG/" 
     TIMESTAMP=`getDate`
     LOGFILE="$LOGDIR$SCRIPTNAME-$TIMESTAMP.log"
 
@@ -74,7 +75,7 @@ function stateScript {
 
 function confSsh {
     # Create SSH private key
-    SSHKEYFILE="$HOME/my-net/files/ssh/id_rsa"
+    SSHKEYFILE="$DIR/my-net/files/ssh/id_rsa"
     $MNFUNC/ssh.ssh 'ssh.client.key.new' $SSHKEYFILE
 }
 
@@ -97,10 +98,11 @@ function confKubespray {
     echo " "
 
     # Install Python requirements
-    sudo apt-get install python python-pip -y
+    #sudo apt-get install python python-pip -y
 
     # Install Kubespray requirements
-    pip install -r kubespray/requirements.txt
+    #pip install -r kubespray/requirements.txt
+    ansible-playbook --ask-become-pass -b -i $ANSIBLEHOSTFILE $ANSIBLEROLEPATH/config-k8s-bastion.yml
 
     # Create host.ini file
 
