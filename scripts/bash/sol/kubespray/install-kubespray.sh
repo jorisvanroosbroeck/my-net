@@ -1,7 +1,22 @@
 #!/bin/bash
 
-# VARIABLEN
-# =========
+# ==========================
+# INFO: install-kubespray.sh
+# ==========================
+# Needed:   my-net/scripts/bash/func
+#               ssh.sh
+
+
+# ===============================
+# VARIABLEN: install-kubespray.sh
+# ===============================
+MNVAR="$HOME/my-net/env-vars"
+MNFUNC="$HOME/my-net/scripts/bash/func"
+MNHAND="$HOME/my-net/scripts/bash/handlers"
+MNFILE="$HOME/my-net/files"
+ANSIBLEHOSTFILE="$HOME/kubespray/inventory/k8sswiss/hosts.ini"
+ANSIBLEROLEPATH="$HOME/my-net/scripts/ansible"
+
 SCRIPTNAME=${0##*/}
 SCRIPTDIR=${0%/*}
 SCRIPTFULLDIR=$(readlink -f $0)
@@ -10,8 +25,9 @@ TIMESTAMP=" "
 LOGFILE=" "
 
 
-# FUNCTIONS
-# =========
+# ===============================
+# FUNCTIONS: install-kubespray.sh
+# ===============================
 function createLogFile {
     LOGDIR="$HOME/LOG/" 
     TIMESTAMP=`getDate`
@@ -56,6 +72,23 @@ function stateScript {
     fi
 }
 
+function confSsh {
+    # Create SSH private key
+    SSHKEYFILE="$HOME/my-net/files/ssh/id_rsa"
+    $MNFUNC/ssh.ssh 'ssh.client.key.new' $SSHKEYFILE
+}
+
+function createInfra {
+    # Create Infra: Run Terraform Code
+
+    # Get Bastion IP
+    $CONSTRING=`terraform output control_machine_address`
+    EXTIP=awk '{split($VAR, a, ":"); print a[1]}' <<< $CONSTRING
+    EXTPORT=awk '{split($VAR, a, ":"); print a[2]}' <<< $CONSTRING
+    echo "$EXTIP"
+    echo "$EXTPORT"
+}
+
 function confKubespray {
     TIMESTAMP=`getDate`
     
@@ -63,24 +96,16 @@ function confKubespray {
     echo "========== $TIMESTAMP - Configure Kubespray =========="
     echo " "
 
-    # Copy SSH private key
-    cp /home/sysadmin/kubespray/extra_playbooks/k8sswiss/files/id_rsa .ssh/id_rsa
-    chmod 400 .ssh/id_rsa
-    sudo chown sysadmin:sysadmin .ssh/id_rsa
-
-    # Add SSH fingerprint VM's
-    ssh-keyscan -H bastion >> .ssh/known_hosts
-    ssh-keyscan -H 10.0.1.6 >> .ssh/known_hosts
-    ssh-keyscan -H master01 >> .ssh/known_hosts
-    ssh-keyscan -H 10.0.1.5 >> .ssh/known_hosts
-    ssh-keyscan -H worker01 >> .ssh/known_hosts
-    ssh-keyscan -H 10.0.2.5 >> .ssh/known_hosts
-
     # Install Python requirements
     sudo apt-get install python python-pip -y
 
     # Install Kubespray requirements
     pip install -r kubespray/requirements.txt
+
+    # Create host.ini file
+
+    # Playbooks: Prepaire Kubernetes Cluster
+    ansible-playbook --ask-become-pass -b -i $ANSIBLEHOSTFILE $ANSIBLEROLEPATH/config-k8s-cluster.yml
 }
 
 function instKubespray {
@@ -90,21 +115,18 @@ function instKubespray {
     echo "========== $TIMESTAMP - Install Kubespray =========="
     echo " "
 
-    # Playbooks: Prepaire Kubernetes Cluster
-    ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/tasks/config-disable-swap.yml
-    ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/tasks/config-ip-forward.yml
-
     # Playbook: Install Kubernetes Cluster
-    echo "ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/cluster.yml"
-
-    # Playbooks: Reboot Kubernetes Cluster
-    echo "ansible-playbook -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/handlers/reboot-vm.yml"
+    echo "ansible-playbook --ask-become-pass -b -i $ANSIBLEHOSTFILE kubespray/cluster.yml"
 }
 
-# PROGRAM
-# =======
+
+# =============================
+# PROGRAM: install-kubespray.sh
+# =============================
 createLogFile
 stateScript 'Start'
+confSsh
+createInfra
 confKubespray
 instKubespray
 stateScript 'End'

@@ -3,6 +3,8 @@
 # ============
 # Needed:   my-net/scripts/bash/func/
 #               file.sh
+#           my-net/scripts/env-vars/
+#               mn-vars
 
 
 # =================
@@ -34,14 +36,6 @@ function ssh.client.conf {
     # Recreate SSH Key
     SSHKEY="$HOME/.ssh/new-id_rsa"
     ssh.client.key.new "$SSHKEY"
-
-    # Copy SSH Key to VM's
-    ssh-copy-id -i $SSHKEY $USR@172.16.1.10
-    ssh-copy-id -i $SSHKEY $USR@172.16.1.11
-    ssh-copy-id -i $SSHKEY $USR@172.16.1.20
-    ssh-copy-id -i $SSHKEY $USR@172.16.1.21
-    ssh-copy-id -i $SSHKEY $USR@172.16.1.22
-    ssh-copy-id -i $SSHKEY $USR@172.16.1.30
 }
 
 function ssh.client.key.new {
@@ -49,6 +43,10 @@ function ssh.client.key.new {
 
     # Create SSH Key
     ssh-keygen -t rsa -f $SSHKEY -q -N ""
+}
+
+function ssh.client.key.remote {
+    ssh-copy-id -i $SSHKEY $USER@$VM
 }
 
 function ssh.client.fingerprint {

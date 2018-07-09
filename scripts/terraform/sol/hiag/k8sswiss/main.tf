@@ -3,7 +3,7 @@ provider "cloud4" {
 }
 
 module "caas-01" {
-  source                 = "../../modules/hiag/k8sswiss"
+  source                 = "../../../modules/hiag/k8sswiss"
   prefix                 = "${var.prefix}"
   ssh_key                = "${var.ssh_key}"
   admin_user_password    = "${var.admin_user_password}"
