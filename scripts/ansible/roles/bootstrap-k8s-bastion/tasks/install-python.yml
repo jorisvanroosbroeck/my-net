@@ -8,3 +8,6 @@
   apt:
     name: python-pip
     state: present
+
+- name: Install Kubespray Requirements
+  command: pip install -r kubespray/requirements.txt
