@@ -30,6 +30,32 @@ function ssh.client.conf {
     fi
     echo "$SSH_PUBLIC_KEY" > "$HOME/.ssh/authorized_keys"
     $MNFUNC/file.sh 'file.line.check' "$HOME/.ssh/authorized_keys" "$SSH_PUBLIC_KEY"
+
+    # Recreate SSH Key
+    SSHKEY="$HOME/.ssh/new-id_rsa"
+    ssh.client.key.new "$SSHKEY"
+
+    # Copy SSH Key to VM's
+    ssh-copy-id -i $SSHKEY $USR@172.16.1.10
+    ssh-copy-id -i $SSHKEY $USR@172.16.1.11
+    ssh-copy-id -i $SSHKEY $USR@172.16.1.20
+    ssh-copy-id -i $SSHKEY $USR@172.16.1.21
+    ssh-copy-id -i $SSHKEY $USR@172.16.1.22
+    ssh-copy-id -i $SSHKEY $USR@172.16.1.30
+}
+
+function ssh.client.key.new {
+    SSHKEY="$1"
+
+    # Create SSH Key
+    ssh-keygen -t rsa -f $SSHKEY -q -N ""
+}
+
+function ssh.client.fingerprint {
+    VM="$1"
+
+    # Add SSH fingerprint to known_hosts
+    ssh-keyscan -H $VM >> .ssh/known_hosts
 }
 
 function ssh.server.conf {
