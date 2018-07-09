@@ -118,17 +118,6 @@ function instKubespray {
 <<<<<<< HEAD
     # Playbook: Install Kubernetes Cluster
     echo "ansible-playbook --ask-become-pass -b -i $ANSIBLEHOSTFILE kubespray/cluster.yml"
-=======
-    # Playbooks: Prepaire Kubernetes Cluster
-    ansible-playbook --ask-become-pass -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/tasks/config-disable-swap.yml
-    ansible-playbook --ask-become-pass -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/tasks/config-ip-forward.yml
-
-    # Playbook: Install Kubernetes Cluster
-    echo "ansible-playbook --ask-become-pass -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/cluster.yml"
-
-    # Playbooks: Reboot Kubernetes Cluster
-    echo "ansible-playbook --ask-become-pass -b -i kubespray/inventory/k8sswiss/hosts.ini kubespray/extra_playbooks/k8sswiss/handlers/reboot-vm.yml"
->>>>>>> b2b3ed9d88f6776b8b529842cf7ae9deb038efc3
 }
 
 
