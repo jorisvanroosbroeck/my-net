@@ -115,7 +115,6 @@ function instKubespray {
     echo "========== $TIMESTAMP - Install Kubespray =========="
     echo " "
 
-<<<<<<< HEAD
     # Playbook: Install Kubernetes Cluster
     echo "ansible-playbook --ask-become-pass -b -i $ANSIBLEHOSTFILE kubespray/cluster.yml"
 }
