@@ -1,16 +1,39 @@
-vhost01 ansible_host=10.254.254.252     ansible_user=mnadmin
-vgrd01  ansible_host=10.254.254.251     ansible_user=mnadmin
-grd01   ansible_host=10.254.254.254     ansible_user=mnadmin
-grd02   ansible_host=192.168.254.254    ansible_user=mnadmin
+# ## Configure 'ip' variable to bind kubernetes services on a
+# ## different ip than the default iface
+c57b-master-0 ansible_host=172.16.1.10
+c57b-master-1 ansible_host=172.16.1.11
+c57b-worker-0 ansible_host=172.16.1.20
+c57b-worker-1 ansible_host=172.16.1.21
+c57b-worker-2 ansible_host=172.16.1.22
 
-[bare-metal]
-vhost01
-vgrd01
+# ## configure a bastion host if your nodes are not directly reachable
+bastion ansible_host=172.16.1.30 ansible_user=sysadmin
+c57b-cm-0 ansible_host=172.16.1.30 ansible_user=sysadmin
 
-[firewall]
-grd01
-grd02
+[kube-master]
+c57b-master-0
+c57b-master-1
 
-[mynet:children]
-bare-metal
-firewall
+[etcd]
+c57b-master-1
+
+[kube-node]
+c57b-worker-0
+c57b-worker-1
+c57b-worker-2
+
+# [kube-ingress]
+# node2
+# node3
+
+[k8s-cluster:children]
+kube-master
+kube-node
+# kube-ingress
+
+[all]
+c57b-cm-0
+c57b-master-1
+c57b-worker-0
+c57b-worker-1
+c57b-worker-2
